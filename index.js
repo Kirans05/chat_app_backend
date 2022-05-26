@@ -10,6 +10,10 @@ const cors = require("cors")
 app.use(cors())
 const chatRoutes = require("./routes/chatRoute")
 const messageRoute = require("./routes/messageRoute")
+const morgon = require("morgan")
+app.use(morgon("dev"))
+const color = require("colors")
+
 
 
 
@@ -20,7 +24,7 @@ app.use("/api/message",messageRoute)
 
 
 const server = app.listen(port,()=>{
-    console.log("port statrted at ",port)
+    console.log("port statrted at ".bgBlue.red)
 })
 
 const io = require("socket.io")(server,{
